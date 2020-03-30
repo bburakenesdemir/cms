@@ -30,9 +30,9 @@ public class AppealController {
         return new ResponseEntity<Appeal>(appeal, HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public ResponseEntity<Appeal> delete(@RequestBody Appeal appeal) {
-        appealService.delete(appeal.getIdentifier());
+    @DeleteMapping("/id/{id}")
+    public ResponseEntity<Appeal> delete(@PathVariable("id") Long id) {
+        Appeal appeal = appealService.delete(id);
 
         return new ResponseEntity<Appeal>(appeal, HttpStatus.OK);
     }
