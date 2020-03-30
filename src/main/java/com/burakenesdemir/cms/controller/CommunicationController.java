@@ -1,6 +1,5 @@
 package com.burakenesdemir.cms.controller;
 
-import com.burakenesdemir.cms.data.entity.Appeal;
 import com.burakenesdemir.cms.data.entity.Communication;
 import com.burakenesdemir.cms.service.CommunicationService;
 import org.springframework.beans.factory.annotation.Autowired;
