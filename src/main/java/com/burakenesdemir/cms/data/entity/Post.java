@@ -1,63 +1,59 @@
 package com.burakenesdemir.cms.data.entity;
 
 import com.burakenesdemir.cms.model.enums.PostType;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Entity(name = "CmsPost")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "CmsPost")
+@Table
 public class Post {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name = "id")
     private String identifier;
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    @JsonProperty("createdTime")
-    protected Date created;
-
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @JsonProperty("updatedTime")
-    protected Date updated;
-
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "author")
     private String author;
 
     @Lob
+    @Column(name = "content")
     private String content;
 
     @Lob
+    @Column(name = "excerpt")
     private String excerpt;
 
+    @Column(name = "is_header")
     private Boolean isHeader;
 
+    @Column(name = "is_footer")
     private Boolean isFooter;
 
+    @Column(name = "deletable")
     private Boolean deletable;
 
+    @Column(name = "editable")
     private Boolean editable;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "post_type")
     private PostType postType;
 
+    @Column(name = "banner_image")
     private String bannerImage;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST,CascadeType.MERGE })

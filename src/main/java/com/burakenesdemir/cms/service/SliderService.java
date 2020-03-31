@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -17,7 +16,6 @@ public class SliderService {
     SliderRepository sliderRepository;
 
     public Slider create(Slider slider) {
-        slider.setCreated(new Date());
 
         return sliderRepository.save(slider);
     }
@@ -46,7 +44,6 @@ public class SliderService {
         } else {
             if (slider.getEditable() == true) {
                 sliderToUpdate = slider;
-                sliderToUpdate.setUpdated(new Date());
                 sliderRepository.save(sliderToUpdate);
             } else {
                 //throw

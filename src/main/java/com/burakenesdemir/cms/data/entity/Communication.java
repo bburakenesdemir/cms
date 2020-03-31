@@ -1,7 +1,7 @@
 package com.burakenesdemir.cms.data.entity;
 
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -14,23 +14,20 @@ import javax.persistence.*;
 public class Communication {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name = "id")
     private String identifier;
 
     @Column(name = "name_surname")
-    @Length(max = 30)
     private String nameSurname;
 
     @Column(name = "email")
-    @Length(max = 30)
     private String email;
 
     @Column(name = "phone")
-    @Length(max = 30)
     private String phone;
 
     @Column(name = "message")
-    @Length(max = 100)
     private String message;
 }
