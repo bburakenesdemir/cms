@@ -21,7 +21,7 @@ public class Slider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private String identifier;
 
     @Column
     @Temporal(TemporalType.TIMESTAMP)

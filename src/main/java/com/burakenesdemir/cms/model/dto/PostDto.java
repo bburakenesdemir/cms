@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class PostDto {
 
-    private Long oid;
+    private String identifier;
 
     protected Date created;
 
@@ -35,5 +35,5 @@ public class PostDto {
 
     private String bannerImage;
 
-    private Long sliderId;
+    private String sliderId;
 }

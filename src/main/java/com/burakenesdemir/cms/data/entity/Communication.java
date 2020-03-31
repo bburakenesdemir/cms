@@ -1,7 +1,6 @@
 package com.burakenesdemir.cms.data.entity;
 
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -17,7 +16,7 @@ public class Communication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer identifier;
+    private String identifier;
 
     @Column(name = "name_surname")
     @Length(max = 30)

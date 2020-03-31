@@ -1,6 +1,5 @@
 package com.burakenesdemir.cms.controller;
 
-import com.burakenesdemir.cms.data.entity.Appeal;
 import com.burakenesdemir.cms.data.entity.Communication;
 import com.burakenesdemir.cms.service.CommunicationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class CommunicationController {
     }
 
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<Communication> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Communication> delete(@PathVariable("id") String id) {
         Communication communication = communicationService.delete(id);
 
         return new ResponseEntity<Communication>(communication, HttpStatus.OK);

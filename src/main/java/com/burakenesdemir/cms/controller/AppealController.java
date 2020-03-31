@@ -31,7 +31,7 @@ public class AppealController {
     }
 
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<Appeal> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Appeal> delete(@PathVariable("id") String id) {
         Appeal appeal = appealService.delete(id);
 
         return new ResponseEntity<Appeal>(appeal, HttpStatus.OK);
