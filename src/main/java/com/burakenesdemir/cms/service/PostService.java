@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -28,7 +27,6 @@ public class PostService {
 
     public Post create(PostDto postDto) {
         Post entity = postMapper.toEntity(postDto);
-        entity.setCreated(new Date());
 
         if (postDto.getSliderId() != null) {
             Slider slider = sliderRepository.getOne(postDto.getSliderId());
@@ -67,7 +65,6 @@ public class PostService {
         } else {
             if (post.getEditable() == true) {
                 postToUpdate = post;
-                postToUpdate.setUpdated(new Date());
                 postRepository.save(postToUpdate);
             } else {
                 //throw

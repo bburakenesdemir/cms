@@ -1,17 +1,13 @@
 package com.burakenesdemir.cms.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 @Data
 @Entity(name = "SliderImage")
@@ -22,32 +18,27 @@ import java.util.Date;
 public class SliderImage {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name = "id")
     private String identifier;
 
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    @JsonProperty("createdTime")
-    protected Date created;
-
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @JsonProperty("updatedTime")
-    protected Date updated;
-
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
     private String description;
 
+    @Column(name = "redirection_url")
     private String redirectionUrl;
 
+    @Column(name = "is_external")
     private Boolean isExternal;
 
     @NotNull
+    @Column(name = "file_path")
     private String  filePath;
 
+    @Column(name = "order_number")
     private String orderNumber;
 }

@@ -1,13 +1,9 @@
 package com.burakenesdemir.cms.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -19,32 +15,23 @@ import java.util.List;
 public class Slider {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     @Column(name = "id")
     private String identifier;
-
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    @JsonProperty("createdTime")
-    protected Date created;
-
-    @Column
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    @JsonProperty("updatedTime")
-    protected Date updated;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name= "code")
+    @Column(name = "code")
     private String code;
 
     @OneToMany(cascade = CascadeType.ALL)
     List<SliderImage> sliderImageList;
 
+    @Column(name = "deletable")
     private Boolean deletable;
 
+    @Column(name = "editable")
     private Boolean editable;
 }
