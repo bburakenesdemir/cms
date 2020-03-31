@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 public class SliderDto {
 
-    private Long oid;
+    private String identifier;
 
     protected Date created;
 

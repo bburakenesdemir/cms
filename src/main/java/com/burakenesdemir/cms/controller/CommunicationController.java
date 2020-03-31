@@ -31,7 +31,7 @@ public class CommunicationController {
     }
 
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<Communication> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Communication> delete(@PathVariable("id") String id) {
         Communication communication = communicationService.delete(id);
 
         return new ResponseEntity<Communication>(communication, HttpStatus.OK);

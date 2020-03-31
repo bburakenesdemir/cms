@@ -7,7 +7,7 @@ import java.util.Date;
 @Data
 public class SliderImageDto {
 
-    private Long oid;
+    private String identifier;
 
     protected Date created;
 

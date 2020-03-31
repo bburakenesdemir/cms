@@ -21,7 +21,7 @@ public class Appeal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer identifier;
+    private String identifier;
 
     @Column(name = "corporate_name")
     @Length(max = 30)
@@ -32,7 +32,7 @@ public class Appeal {
     private String authorizedPerson;
 
     @Column(name = "phone")
-    @Length(max = 30)
+    @Length(max = 11)
     private String phone;
 
     @Column(name = "email")

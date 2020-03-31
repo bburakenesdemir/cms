@@ -8,7 +8,7 @@ import lombok.Data;
 public class AppealDto {
 
     @JsonProperty("id")
-    private Integer identifier;
+    private String identifier;
 
     private String corporateTitle;
 

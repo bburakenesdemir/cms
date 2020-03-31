@@ -1,6 +1,7 @@
 package com.burakenesdemir.cms.controller;
 
 import com.burakenesdemir.cms.data.entity.Post;
+import com.burakenesdemir.cms.model.dto.PostDto;
 import com.burakenesdemir.cms.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,8 @@ public class PostController {
     PostService postService;
 
     @PostMapping
-    public ResponseEntity<Post> create(@RequestBody Post post) {
-        postService.create(post);
+    public ResponseEntity<Post> create(@RequestBody PostDto postDto) {
+        Post post = postService.create(postDto);
 
         return new ResponseEntity<Post>(post, HttpStatus.OK);
     }
@@ -31,7 +32,7 @@ public class PostController {
     }
 
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<Post> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Post> delete(@PathVariable("id") String id) {
         Post post = postService.delete(id);
 
         return new ResponseEntity<Post>(post, HttpStatus.OK);

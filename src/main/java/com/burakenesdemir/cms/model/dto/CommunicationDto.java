@@ -7,7 +7,7 @@ import lombok.Data;
 public class CommunicationDto {
 
     @JsonProperty("id")
-    private Integer identifier;
+    private String identifier;
 
     private String nameSurname;
 

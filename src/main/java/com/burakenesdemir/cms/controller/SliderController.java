@@ -24,14 +24,14 @@ public class SliderController {
     }
 
     @PutMapping
-    public ResponseEntity<Slider> update(@RequestBody Slider post) {
+    public ResponseEntity<Slider> update(@RequestBody Slider slider) {
         sliderService.update(slider);
 
         return new ResponseEntity<Slider>(slider, HttpStatus.OK);
     }
 
     @DeleteMapping("/id/{id}")
-    public ResponseEntity<Slider> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Slider> delete(@PathVariable("id") String id) {
         Slider slider = sliderService.delete(id);
 
         return new ResponseEntity<Slider>(slider, HttpStatus.OK);
