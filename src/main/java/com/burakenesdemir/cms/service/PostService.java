@@ -22,7 +22,7 @@ public class PostService {
     @Autowired
     SliderRepository sliderRepository;
 
-    @Autowired
+    /*@Autowired
     PostMapper postMapper;
 
     public Post create(PostDto postDto) {
@@ -41,18 +41,20 @@ public class PostService {
         return postRepository.save(entity);
     }
 
+     */
+
     public Post delete(String id) {
         Post post = postRepository.getOne(id);
 
-        if (post == null) {
-            log.error("Object could not found by id: {}", id);
-            //throw
-        } else {
+        if (post != null) {
             if (post.getDeletable() == true) {
                 postRepository.delete(post);
             } else {
                 //throw
             }
+        } else {
+            log.error("Object could not found by id: {}", id);
+            //throw
         }
 
         return post;
@@ -60,15 +62,15 @@ public class PostService {
 
     public Post update(Post post) {
         Post postToUpdate = postRepository.getOne(post.getIdentifier());
-        if (postToUpdate == null) {
-            log.error("Object could not found by id: {}", post.getIdentifier());
-        } else {
+        if (postToUpdate != null) {
             if (post.getEditable() == true) {
                 postToUpdate = post;
                 postRepository.save(postToUpdate);
             } else {
                 //throw
             }
+        } else {
+            log.error("Object could not found by id: {}", post.getIdentifier());
         }
 
         return postToUpdate;

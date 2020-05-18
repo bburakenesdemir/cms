@@ -17,9 +17,9 @@ import static com.burakenesdemir.cms.utils.StringUtil.replaceSpecialChars;
 @Service
 public class FileService {
 
-    @Value("${spring.image.url}")
+
     public String uploadDir;
-    @Value("${spring.image.domain}")
+
     public String domain;
 
     public String uploadSliderImage(MultipartFile file) throws Exception {

@@ -1,26 +1,33 @@
 package com.burakenesdemir.cms.controller;
 
-import com.burakenesdemir.cms.data.entity.Slider;
-import com.burakenesdemir.cms.service.SliderService;
+import com.burakenesdemir.cms.data.entity.User;
+import com.burakenesdemir.cms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
     @Autowired
-    SliderService userService;
+    UserService userService;
 
     @PostMapping
-    public Response resetPassword(@RequestParam(name = "email", required = false) String email,
-                                  @RequestParam(name = "token", required = false) String token,
-                                  @RequestParam(name = "password", required = false) String password){
-        userService.resetPassword(email,token,password);
-        return Response.ok();
+    public ResponseEntity<User> save(@RequestBody User user) {
+        userService.save(user);
+
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
+
+    /*
+    @PostMapping
+    public void resetPassword(@RequestParam(name = "email", required = false) String email,
+                              @RequestParam(name = "token", required = false) String token,
+                              @RequestParam(name = "password", required = false) String password) {
+        userService.resetPassword(email, token, password);
+    }
+
+     */
 }

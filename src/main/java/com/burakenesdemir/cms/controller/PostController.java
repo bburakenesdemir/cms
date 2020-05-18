@@ -17,12 +17,14 @@ public class PostController {
     @Autowired
     PostService postService;
 
+    /*
     @PostMapping
     public ResponseEntity<Post> create(@RequestBody PostDto postDto) {
         Post post = postService.create(postDto);
 
         return new ResponseEntity<Post>(post, HttpStatus.OK);
     }
+    */
 
     @PutMapping
     public ResponseEntity<Post> update(@RequestBody Post post) {
