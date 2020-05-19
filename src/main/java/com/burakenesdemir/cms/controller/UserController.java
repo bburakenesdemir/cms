@@ -21,13 +21,10 @@ public class UserController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    /*
-    @PostMapping
+    @RequestMapping(value = {"/reset"}, method = RequestMethod.POST)
     public void resetPassword(@RequestParam(name = "email", required = false) String email,
                               @RequestParam(name = "token", required = false) String token,
                               @RequestParam(name = "password", required = false) String password) {
         userService.resetPassword(email, token, password);
     }
-
-     */
 }
