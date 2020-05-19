@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/slider-image")
+@RequestMapping("/api/slider-image")
 public class SliderImageController {
 
     @Autowired

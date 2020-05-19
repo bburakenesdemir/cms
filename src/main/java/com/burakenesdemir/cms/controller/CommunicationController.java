@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/communication")
+@RequestMapping("/api/communication")
 public class CommunicationController {
 
     @Autowired

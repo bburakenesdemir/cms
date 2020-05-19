@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/appeal")
+@RequestMapping("/api/appeal")
 public class AppealController {
 
     @Autowired

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/slider")
+@RequestMapping("/api/slider")
 public class SliderController {
 
     @Autowired
