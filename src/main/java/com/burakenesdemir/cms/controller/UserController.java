@@ -22,9 +22,9 @@ public class UserController {
     }
 
     @RequestMapping(value = {"/reset"}, method = RequestMethod.POST)
-    public void resetPassword(@RequestParam(name = "email", required = false) String email,
+    public User resetPassword(@RequestParam(name = "email", required = false) String email,
                               @RequestParam(name = "token", required = false) String token,
                               @RequestParam(name = "password", required = false) String password) {
-        userService.resetPassword(email, token, password);
+        return userService.resetPassword(email, token, password);
     }
 }

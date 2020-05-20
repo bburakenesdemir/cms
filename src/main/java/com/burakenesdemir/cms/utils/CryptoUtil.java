@@ -1,10 +1,16 @@
 package com.burakenesdemir.cms.utils;
 
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.springframework.http.HttpStatus;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.time.LocalDateTime;
+
+import static com.burakenesdemir.cms.utils.constants.MailConstants.EXPIRE_KEY;
 
 public class CryptoUtil {
     private static final String key = "aesEncryptionKey";
@@ -26,6 +32,20 @@ public class CryptoUtil {
         return null;
     }
 
+    public static JSONObject checkValidity(String hash) {
+        try {
+            JSONObject object = new JSONObject(decrypt(hash));
+            LocalDateTime expire = LocalDateTime.parse(object.getString(EXPIRE_KEY));
+            if (!expire.isAfter(LocalDateTime.now())) {
+                //throw //TODO THROW CLASS NEED HERE
+            }
+
+            return object;
+        } catch (JSONException e) {
+            //throw //TODO THROW CLASS NEED HERE
+            return null;
+        }
+    }
 
     public static String decrypt(String encrypted) {
         try {
