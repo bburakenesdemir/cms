@@ -25,7 +25,7 @@
 		<apache.commons-lang3.version>3.9</apache.commons-lang3.version>
 		<org.apache.common.mail.version>1.2</org.apache.common.mail.version>
 		<poi.version>4.1.2</poi.version>
-		<httpclient.version>4.5.12</httpclient.version>
+		<httpclient.version>4.5.13</httpclient.version>
 		<!--DO NOT UPDATE --><ojdbc6.version>11.2.0.3</ojdbc6.version><!--DO NOT UPDATE -->
 		<!--DO NOT UPDATE --><postgresql.version>42.2.12</postgresql.version><!--DO NOT UPDATE -->
 		<!--DO NOT UPDATE --><aws-java-sdk-s3.version>1.11.762</aws-java-sdk-s3.version><!--DO NOT UPDATE -->
