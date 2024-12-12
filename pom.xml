@@ -23,7 +23,7 @@
 		<commons-codec.version>1.9</commons-codec.version>
 		<commons-collections4.version>4.0</commons-collections4.version>
 		<apache.commons-lang3.version>3.9</apache.commons-lang3.version>
-		<org.apache.common.mail.version>1.2</org.apache.common.mail.version>
+		<org.apache.common.mail.version>1.5</org.apache.common.mail.version>
 		<poi.version>4.1.2</poi.version>
 		<httpclient.version>4.5.12</httpclient.version>
 		<!--DO NOT UPDATE --><ojdbc6.version>11.2.0.3</ojdbc6.version><!--DO NOT UPDATE -->
